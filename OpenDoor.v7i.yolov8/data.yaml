@@ -1,0 +1,14 @@
+path: .
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 3
+names: ['closed', 'open', 'semi']
+
+roboflow:
+  workspace: amohsen01-outlook-com
+  project: opendoor
+  version: 7
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/amohsen01-outlook-com/opendoor/dataset/7
