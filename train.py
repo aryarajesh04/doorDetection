@@ -7,30 +7,33 @@ RUNS_DIR = os.path.join(BASE_DIR, "runs")
 
 
 def main():
-    model = YOLO("yolov8n.yaml")
+    model = YOLO("yolov8s.yaml")
 
     print(f"Dataset: {DATA_YAML}")
     print(f"Output:  {RUNS_DIR}")
 
     results = model.train(
         data=DATA_YAML,
-        epochs=100,
+        epochs=150,
         imgsz=640,
         batch=32,
         device=0,
-        workers=8,          # set to 0 first to avoid multiprocessing issues
+        workers=8,
         amp=True,
         optimizer="AdamW",
         lr0=0.001,
         lrf=0.01,
         weight_decay=0.0005,
-        warmup_epochs=3,
-        patience=20,
+        warmup_epochs=5,
+        cos_lr=True,
+        patience=30,
+        mosaic=1.0,
+        mixup=0.1,
+        label_smoothing=0.1,
         save=True,
         save_period=10,
         project=RUNS_DIR,
         name="door_detection",
-        pretrained=False,
         verbose=True,
         plots=True,
     )
