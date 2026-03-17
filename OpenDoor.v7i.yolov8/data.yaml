@@ -1,4 +1,4 @@
-path: /Users/arya/Redesign/OpenDoor.v7i.yolov8
+path: /var/home/general-user/Downloads/doorDetection-main/
 train: train/images
 val: valid/images
 test: test/images
