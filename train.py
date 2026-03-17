@@ -14,11 +14,11 @@ def main():
 
     results = model.train(
         data=DATA_YAML,
-        epochs=10,
-        imgsz=416,
-        batch=5,
+        epochs=100,
+        imgsz=640,
+        batch=32,
         device=0,
-        workers=0,          # set to 0 first to avoid multiprocessing issues
+        workers=8,          # set to 0 first to avoid multiprocessing issues
         amp=True,
         optimizer="AdamW",
         lr0=0.001,
@@ -46,7 +46,7 @@ def main():
         data=DATA_YAML,
         split="test",
         device=0,
-        workers=0
+        workers=8
     )
 
     print(f"\nmAP50:    {metrics.box.map50:.4f}")
