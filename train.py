@@ -14,9 +14,9 @@ print(f"Output:  {RUNS_DIR}")
 
 results = model.train(
     data=DATA_YAML,
-    epochs=100,
+    epochs=1,
     imgsz=416,
-    batch=32,           
+    batch=2,           
     device=0,           
     workers=8,
     amp=True,           
