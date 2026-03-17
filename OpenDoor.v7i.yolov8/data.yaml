@@ -1,4 +1,4 @@
-path: /var/home/general-user/Downloads/doorDetection-main/
+path: /var/home/general-user/Downloads/doorDetection-main/OpenDoor.v7i.yolov8
 train: train/images
 val: valid/images
 test: test/images
