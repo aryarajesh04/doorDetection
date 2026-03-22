@@ -1,0 +1,7 @@
+path: /Users/arya/Redesign/door_combined_yolo
+train: train/images
+val: val/images
+test: test/images
+
+nc: 3
+names: ['closed', 'open', 'semi']

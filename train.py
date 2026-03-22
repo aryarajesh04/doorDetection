@@ -2,19 +2,19 @@ import os
 from ultralytics import YOLO
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_YAML = os.path.join(BASE_DIR, "OpenDoor.v7i.yolov8", "data.yaml")
+DATA_YAML = os.path.join(BASE_DIR, "door_combined_yolo", "data.yaml")
 RUNS_DIR = os.path.join(BASE_DIR, "runs")
 
 
 def main():
-    model = YOLO("yolov8s.yaml")
+    model = YOLO("yolov8n.yaml")
 
     print(f"Dataset: {DATA_YAML}")
     print(f"Output:  {RUNS_DIR}")
 
     results = model.train(
         data=DATA_YAML,
-        epochs=150,
+        epochs=100,
         imgsz=640,
         batch=32,
         device=0,
@@ -33,13 +33,13 @@ def main():
         save=True,
         save_period=10,
         project=RUNS_DIR,
-        name="door_detection",
+        name="door_combined",
         verbose=True,
         plots=True,
     )
 
-    best_model_path = os.path.join(RUNS_DIR, "door_detection", "weights", "best.pt")
-    results_csv_path = os.path.join(RUNS_DIR, "door_detection", "results.csv")
+    best_model_path = os.path.join(RUNS_DIR, "door_combined", "weights", "best.pt")
+    results_csv_path = os.path.join(RUNS_DIR, "door_combined", "results.csv")
 
     print(f"Best model: {best_model_path}")
     print(f"Metrics:    {results_csv_path}")
